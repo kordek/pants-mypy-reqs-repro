@@ -1,0 +1,27 @@
+[GLOBAL]
+pants_version = "2.20.0"
+
+backend_packages = [
+    "pants.backend.python",
+    "pants.backend.python.typecheck.mypy",
+]
+
+[source]
+root_patterns = [
+    "src/python",
+]
+
+[tailor]
+ignore_paths = ["3rdparty/python/*"]
+
+[python]
+enable_resolves = true
+default_resolve = "common"
+interpreter_constraints = ["CPython==3.9.*"]
+
+[python.resolves]
+common = "3rdparty/python/common.lock"
+mypy = "3rdparty/python/mypy.lock"
+
+[mypy]
+install_from_resolve = "mypy"

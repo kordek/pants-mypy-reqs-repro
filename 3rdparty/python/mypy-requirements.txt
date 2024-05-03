@@ -1,0 +1,2 @@
+mypy==1.5.0
+types-redis==4.3.13
